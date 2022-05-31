@@ -1,13 +1,4 @@
-// var myNum = "7be49e90f87d7173d0db46577a28b1ff";
-// var form = document.getElementById("search");
-// var currentConditionsHeaderEl = document.querySelector("#current-weather h3");
-// var currentIconEl = document.querySelector("#current-icon");
-// var currentTempEl = document.getElementById("current-temp");
-// var currentWindEl = document.getElementById("current-wind");
-// var currentHumidityEl = document.getElementById("current-humidity");
-// var currentUvEl = document.getElementById("current-uv-index");
-// var fiveDayForecastEl = document.getElementById("five-day-forecast");
-// var searchListEl = document.querySelector(".search-list");
+
 var actorName = "";
 // var searchHistory = [];
 var imbd = {};
