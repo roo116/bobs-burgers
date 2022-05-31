@@ -1,0 +1,65 @@
+body{
+    background-color: rgb(244, 214, 179);
+}
+#header{
+    background-size: cover;
+    background-position-y: 40%;
+    color:rgb(134, 7, 7);
+    background-color:rgb(230, 178, 35);
+    position:relative !important;
+  }
+  
+  /* h1 style for Name */
+  #header h1{
+    font-size: 400%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
+  }
+  
+  /*Jumbotron padding and border */
+  .jumbotron {
+    padding: 1rem;
+    border-radius: 0;
+  }
+  
+  /* character Search width */
+  #search-character{
+    width:80%;
+  }
+  
+  /* fontawesome magnifying glass icon */
+  #search-button-icon{
+    width:20px;
+    display:inline-block;
+  }
+  
+  /*About Futurama padding */
+  #info-about{
+    padding-left: 15px;
+    border-style: dashed;
+    border-width: thick;
+    background-color: rgb(205, 207, 83);
+  }
+
+  /* clear storage below list of cities */
+  #clear-storage{
+    color:rgb(251, 246, 246);
+    background-color: rgb(25, 123, 227);
+    text-decoration: none;
+    font-size:.75em;
+    margin: .5em 0em 0em .5em;
+  }
+  
+  /* character card styling */
+  .character-card{
+    width: 9rem;
+    background-color: #0275d8;
+    color: white;
+    text-align: center;
+  }
+  
