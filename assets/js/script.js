@@ -8,7 +8,7 @@
 // var currentUvEl = document.getElementById("current-uv-index");
 // var fiveDayForecastEl = document.getElementById("five-day-forecast");
 // var searchListEl = document.querySelector(".search-list");
-var characterName = "";
+var actorName = "";
 // var searchHistory = [];
 var imbd = {};
 
@@ -34,8 +34,8 @@ var fetchData = function (characterName) {
     .then(function (response) {
       return response.json();
     })
-    .then(function (character) {
-      characterName = character[0].name;
+    .then(function (actor) {
+      actorName = actor[0].name;
       //   var cityLattitude = city[0].lat;
       //   var cityLongitude = city[0].lon;
       fetch(`https://imdb-api.com/en/API/SearchKeyword/k_c7pld9ns/{expression}`)
