@@ -1,3 +1,4 @@
+
 //update with correct element id's
 var homeEl = document.getElementById("home");
 var inputEl = document.getElementById("input");
@@ -23,7 +24,7 @@ var getCharacter = function (character) {
     })
     .then(function (actor) {
       actorName = actor[0].name;
-      
+
       fetch(`https://imdb-api.com/en/API/SearchKeyword/k_c7pld9ns/{expression}`)
         .then(function (imbdResponse) {
           return imbdResponse.json();
@@ -33,6 +34,3 @@ var getCharacter = function (character) {
         });
     });
 };
-
-
-
