@@ -1,3 +1,4 @@
+
 //update with correct element id's
 var homeEl = document.getElementById("home");
 var inputEl = document.getElementById("input");
