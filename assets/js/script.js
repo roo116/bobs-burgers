@@ -5,12 +5,21 @@ var btnEl = document.getElementById("search-button");
 var imgEl = document.getElementById("result-img");
 var nameEl = document.getElementById("name");
 var actorName = "";
+
+// function init() {
+searchResults = JSON.parse(localStorage.getItem("searchResults"));
+
+// if (!searchResults) {
 var searchResults = {
   charName: [],
   charImg: [],
   actorName: [],
   actorImg: [],
 };
+
+// return;
+// }
+// }
 
 var clickHandler = function (event) {
   event.preventDefault();

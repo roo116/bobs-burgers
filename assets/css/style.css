@@ -2,6 +2,7 @@
 
 body {
   background-color: rgb(244, 214, 179);
+  font-family: "Short Stack", cursive;
 }
 #header {
   background-size: cover;
@@ -9,7 +10,7 @@ body {
   color: rgb(134, 7, 7);
   background-color: rgb(230, 178, 35);
   position: relative !important;
-  font-family: "Short Stack", cursive;
+  
 }
 
 /* h1 style for Name */
@@ -42,10 +43,6 @@ body {
   display: inline-block;
 }
 
-label {
-  font-family: "Short Stack", cursive;
-}
-
 /*About Futurama padding */
 #info-about {
   padding-left: 15px;
@@ -69,7 +66,6 @@ img {
   text-decoration: none;
   font-size: 0.75em;
   margin: 0.5em 0em 0em 0.5em;
-  font-family: "Short Stack", cursive;
 }
 
 /* character card styling */
@@ -210,4 +206,8 @@ body {
   align-items: center;
   transition: 0.3s;
   padding: 1rem;
+}
+
+#go-back {
+  font-family: "Short Stack", cursive;
 }
