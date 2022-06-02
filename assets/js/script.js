@@ -1,12 +1,43 @@
 
 //update with correct element id's
 var homeEl = document.getElementById("home");
-var inputEl = document.getElementById("input");
+var userFormEl = document.getElementById("search");
+var searchButtonEl = document.getElementById("search-button");
 var inputEl = document.getElementById("go-button");
 var imgEl = document.getElementById("result-img");
-var nameEl = document.getElementById("name");
+var nameInputEl = document.getElementById("search-character");
 var actorName = "";
 var imbd = {};
+
+var formSubmitHandler = function(event) {
+  // prevent page from refreshing
+  event.preventDefault();
+
+  // get value from input element
+  var characterName = nameInputEl.value.trim();
+
+  if (characterName) {
+    getUserRepos(characterName);
+
+    // clear old content
+    repoContainerEl.textContent = "";
+    nameInputEl.value = "";
+  } else {
+    alert("Please enter a Futurama character");
+  }
+};
+
+var buttonClickHandler = function(event) {
+  // get the language attribute from the clicked element
+  var charSearch = event.target.getAttribute("search-button");
+
+  if (charSearch) {
+    getFeaturedRepos(charSearch);
+
+    // clear old content
+    repoContainerEl.textContent = "";
+  }
+};
 
 var getCharacter = function (character) {
   var apiUrl =
@@ -34,3 +65,8 @@ var getCharacter = function (character) {
         });
     });
 };
+
+// add event listeners to form and button container
+userFormEl.addEventListener("submit", formSubmitHandler);
+searchButtonEl.addEventListener("click", buttonClickHandler);
+

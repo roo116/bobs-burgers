@@ -29,10 +29,17 @@ body{
   border-radius: 0;
 }
 
+#search {
+  color:aliceblue;
+}
+
 /* character Search width */
 #search-character{
   width:80%;
+  color:rgb(2, 11, 20);
 }
+
+
 
 /* fontawesome magnifying glass icon */
 #search-button-icon{
