@@ -37,8 +37,8 @@ var getActorImg = function (actorId) {
 };
 
 var returnToSearch = function () {
-   // localStorage.clear();
-  location.replace("./SearchPage.html");
+  // localStorage.clear();
+  location.replace("./index.html");
 };
 
 //go back
