@@ -5,9 +5,9 @@ var btnEl = document.getElementById("search-button");
 var imgEl = document.getElementById("result-img");
 var nameEl = document.getElementById("name");
 var actorName = "";
-var quoteEl=document.getElementById("quote");
-var randomPic=document.getElementById("rdm-char-img");
-var randomName=document.getElementById("character-name");
+var quoteEl = document.getElementById("quote");
+var randomPic = document.getElementById("rdm-char-img");
+var randomName = document.getElementById("character-name");
 
 // function init() {
 searchResults = JSON.parse(localStorage.getItem("searchResults"));
@@ -61,11 +61,11 @@ btnEl.addEventListener("click", clickHandler);
 
 //random front page character and assets
 
-var charList=["Philip J. Fry","Leela","Hubert J. Farnsworth","Bender","Amy"];
-var charListQuote=["Fry","Leela", "Professor-Farnsworth", "Bender", "Amy"]
-var randomChar=function(){
-var choice=Math.floor(Math.random()*5)
-console.log(choice);
+var charList = ["Philip J. Fry", "Leela", "Hubert J. Farnsworth", "Bender", "Amy"];
+var charListQuote = ["Fry", "Leela", "Professor-Farnsworth", "Bender", "Amy"]
+var randomChar = function () {
+  var choice = Math.floor(Math.random() * 5)
+  console.log(choice);
   return choice;
 
 }
@@ -78,9 +78,9 @@ var setRandomChar = function (character) {
       return;
     }
     if (response.ok) {
-     
+
       response.json().then(function (data) {
-       
+
         randomName.textContent = data[0].Name;
         randomPic.src = data[0].PicUrl;
         actor = data[0].VoicedBy;
@@ -95,11 +95,11 @@ var setRandomChar = function (character) {
       return;
     }
     if (response.ok) {
-      
+
       response.json().then(function (data) {
         console.log(data);
-        var quoteChoice=Math.floor(Math.random()*data.length);
-        quoteEl.textContent=data[quoteChoice].quote;
+        var quoteChoice = Math.floor(Math.random() * data.length);
+        quoteEl.textContent = data[quoteChoice].quote;
 
       });
     }
