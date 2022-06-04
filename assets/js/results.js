@@ -3,6 +3,7 @@ var charTgt = document.getElementById("char-target");
 var charName = document.getElementById("char-name");
 var actorNameEl = document.getElementById("actor-name");
 var backBtnEl = document.getElementById("go-back");
+var actorInfo = document.getElementById("actor-info")
 var actorId = "";
 var actorImg = "";
 
@@ -25,13 +26,32 @@ fetch(apiImdb).then(function (response) {
 
 var getActorImg = function (actorId) {
   console.log(actorId);
-  var apiActorImg = "https://imdb-api.com/en/API/Images/k_4lc84q6o/" + actorId;
+  var apiActorImg = `https://imdb-api.com/en/API/Search/k_4lc84q6o/${actorId}?=bio`;
   console.log(apiActorImg);
   fetch(apiActorImg).then(function (response) {
     response.json().then(function (data) {
       console.log(data);
-      actorImg = data.items[0].image;
+      actorImg = data.results[0].image;
+      var actorDesc = data.results[0].description
+      actorUrl = `https://imdb.com/name/${actorId}`
       document.getElementById("actor-image").setAttribute("src", actorImg);
+
+      var actorLink = document.createElement("a");
+      var actorEl = document.createElement("p")
+
+      actorLink.setAttribute("href", actorUrl);
+      actorLink.textContent = "IMDB link"
+      actorEl.textContent = actorDesc;
+
+      actorInfo.appendChild(actorEl);
+      actorInfo.appendChild(actorLink)
+
+
+
+
+
+
+
     });
   });
 };
