@@ -29,6 +29,7 @@ var clickHandler = function (event) {
 
   console.log(nameEl.value);
   character = nameEl.value.trim();
+  console.log(">>>> check character :",character);
   getCharacter(character);
 };
 
@@ -99,10 +100,11 @@ var setRandomChar = function (character) {
       response.json().then(function (data) {
         console.log(data);
         var quoteChoice=Math.floor(Math.random()*data.length);
-        quoteEl.textContent=data[quoteChoice].quote;
+        quoteEl.textContent="Quote : "+ data[quoteChoice].quote;
 
       });
     }
   });
 };
+
 setRandomChar(randomChar());
