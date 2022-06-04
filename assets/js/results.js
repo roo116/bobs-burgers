@@ -3,7 +3,7 @@ var charTgt = document.getElementById("char-target");
 var charName = document.getElementById("char-name");
 var actorNameEl = document.getElementById("actor-name");
 var backBtnEl = document.getElementById("go-back");
-var actorInfo = document.getElementById("actor-info")
+var actorInfo = document.getElementById("actor-info");
 var actorLinkEl = document.getElementsByClassName("card-action");
 var actorId = "";
 var actorImg = "";
@@ -33,20 +33,19 @@ var getActorImg = function (actorId) {
     response.json().then(function (data) {
       console.log(data);
       actorImg = data.results[0].image;
-      var actorDesc = data.results[0].description
-      actorUrl = `https://imdb.com/name/${actorId}`
+      var actorDesc = data.results[0].description;
+      actorUrl = `https://imdb.com/name/${actorId}`;
       document.getElementById("actor-image").setAttribute("src", actorImg);
-      debugger;
 
       var actorLink = document.createElement("a");
-      var actorEl = document.createElement("p")
+      var actorEl = document.createElement("p");
 
       actorLink.setAttribute("href", actorUrl);
-      actorLink.textContent = "IMDB link"
+      actorLink.textContent = "IMDB link";
       actorEl.textContent = actorDesc;
 
       actorInfo.appendChild(actorEl);
-      actorLinkEl.appendChild(actorLink)
+      actorLinkEl.appendChild(actorLink);
     });
   });
 };

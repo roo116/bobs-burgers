@@ -10,7 +10,6 @@ body {
   color: rgb(134, 7, 7);
   background-color: rgb(230, 178, 35);
   position: relative !important;
-  
 }
 
 /* h1 style for Name */
@@ -74,6 +73,18 @@ img {
   background-color: #0275d8;
   color: white;
   text-align: center;
+}
+
+.card .card-image img {
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  margin: auto;
 }
 
 /* Results Page */
