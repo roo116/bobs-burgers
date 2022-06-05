@@ -62,26 +62,12 @@ var getActorImg = function (actorId) {
       actorLink.setAttribute("target", "_blank")
       actorLink.textContent = "Find out more.  Click Me!!"
       actorLinkEl.appendChild(actorLink)
-
-
-      // actorLinkEl = document.getElementsByClassName("card-action");
-      // console.log(actorLinkEl);
-      // 
-      // console.log(actorLink)
-      // var actorEl = document.createElement("p");
-
-      // actorLink.setAttribute("href", actorUrl);
-      // actorLink.textContent = "IMDB link";
-      // actorEl.textContent = actorDesc;
-
-      // actorInfo.appendChild(actorEl);
-      // actorLinkEl.appendChild(actorLink);
     });
   });
 };
 
+// go back function
 var returnToSearch = function () {
-  // localStorage.clear();
   location.replace("./index.html");
 };
 

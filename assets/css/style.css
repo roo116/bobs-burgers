@@ -83,11 +83,6 @@ body {
   background: linear-gradient(to right, #050f14 0%, #2f8cbd 50%, #050f14 100%);
 }
 
-.back-button {
-  text-align: center;
-  
-}
-
 #go-back {
   font-family: "Short Stack", cursive;
   margin-bottom: 10px;

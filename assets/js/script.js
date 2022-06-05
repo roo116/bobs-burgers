@@ -9,10 +9,7 @@ var quoteEl = document.getElementById("quote");
 var randomPic = document.getElementById("rdm-char-img");
 var randomName = document.getElementById("character-name");
 
-// function init() {
-// searchResults = JSON.parse(localStorage.getItem("searchResults"));
-
-// if (!searchResults) {
+// setup a clean object for a new search
 var searchResults = {
   charName: [],
   charImg: [],
@@ -20,7 +17,6 @@ var searchResults = {
   charPlanet: [],
   actorName: [],
   actorImg: []
-
 };
 
 
@@ -32,6 +28,7 @@ var clickHandler = function (event) {
   getCharacter(character);
 };
 
+// get character data from API futurama
 var getCharacter = function (character) {
   var apiUrl =
     "https://futuramaapi.herokuapp.com/api/v2/characters?search=" + character;
