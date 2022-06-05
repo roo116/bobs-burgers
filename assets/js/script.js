@@ -16,15 +16,13 @@ var randomName = document.getElementById("character-name");
 var searchResults = {
   charName: [],
   charImg: [],
-  charDesc: [],
+  charSpec: [],
+  charPlanet: [],
   actorName: [],
-  actorImg: [],
+  actorImg: []
 
 };
 
-// return;
-// }
-// }
 
 var clickHandler = function (event) {
   event.preventDefault();
@@ -43,13 +41,19 @@ var getCharacter = function (character) {
     }
     if (response.ok) {
       response.json().then(function (data) {
+        console.log(data);
         nameEl.textContent = data[0].Name;
+        charSpec = data[0].Species;
+        charPlanet = data[0].Planet;
+
         imgEl.src = data[0].PicUrl;
         actor = data[0].VoicedBy;
 
         searchResults.charName.push(nameEl.textContent);
         searchResults.charImg.push(imgEl.src);
         searchResults.actorName.push(actor);
+        searchResults.charSpec.push(charSpec);
+        searchResults.charPlanet.push(charPlanet);
 
         localStorage.setItem("searchResults", JSON.stringify(searchResults));
 

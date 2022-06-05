@@ -1,6 +1,8 @@
 //global var
 var charTgt = document.getElementById("char-target");
 var charName = document.getElementById("char-name");
+var charPlanetEl = document.getElementById("planet");
+var charSpecEl = document.getElementById("species");
 var actorNameEl = document.getElementById("actor-name");
 var backBtnEl = document.getElementById("go-back");
 var actorInfo = document.getElementById("actor-info");
@@ -8,14 +10,25 @@ var actorLinkEl = document.getElementById("card-link")
 var actorId = "";
 var actorImg = "";
 
+// get results from localStorage to build the page
 searchResults = JSON.parse(localStorage.getItem("searchResults"));
 
+// setup character card
 var charUrl = searchResults.charImg[0];
-var actorName = searchResults.actorName[0];
+var charSpec = searchResults.charSpec[0];
+var charPlanet = searchResults.charPlanet[0]
+
 charTgt.setAttribute("src", charUrl);
 charName.textContent = searchResults.charName[0];
+charSpecEl.textContent = "Species: " + charSpec;
+charPlanetEl.textContent = "Planet: " + charPlanet;
+
+// set up actor cards
+var actorName = searchResults.actorName[0];
 actorNameEl.textContent = actorName;
 
+
+// fetch more this time from IMDB api
 var apiImdb = `https://imdb-api.com/en/API/SearchName/k_4lc84q6o/${actorName}`;
 fetch(apiImdb).then(function (response) {
   if (!response.ok) {
