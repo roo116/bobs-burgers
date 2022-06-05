@@ -83,8 +83,14 @@ body {
   background: linear-gradient(to right, #050f14 0%, #2f8cbd 50%, #050f14 100%);
 }
 
+.back-button {
+  text-align: center;
+  
+}
+
 #go-back {
   font-family: "Short Stack", cursive;
+  margin-bottom: 10px;
 }
 
 /** Animation for Character card */
@@ -201,7 +207,6 @@ body {
   text-align: center;
 }
 
-
 .card .card-image img {
   display: block;
   border-radius: 2px 2px 0 0;
@@ -210,8 +215,14 @@ body {
   right: 0;
   top: 0;
   bottom: 0;
-  width: 100%;
+  height: 50%;
+  /* width: 100%; */
   margin: auto;
+  align-items: center;
+}
+
+.card-item {
+  text-align: center;
 }
 
 /** Actor Card */
