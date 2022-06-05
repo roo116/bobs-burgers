@@ -88,7 +88,6 @@ footer{
   text-align: center;
 }
 
-
 /* Results Page */
 
 /** Body and Gradient Background */
@@ -103,6 +102,11 @@ body {
     #050f14 100%
   );
   background: linear-gradient(to right, #050f14 0%, #2f8cbd 50%, #050f14 100%);
+}
+
+#go-back {
+  font-family: "Short Stack", cursive;
+  margin-bottom: 10px;
 }
 
 /** Animation for Character card */
@@ -211,6 +215,32 @@ body {
   padding: 1rem;
 }
 
+/* character card styling */
+.character-card {
+  width: 9rem;
+  background-color: #0275d8;
+  /* color: white; */
+  text-align: center;
+}
+
+.card .card-image img {
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 50%;
+  /* width: 100%; */
+  margin: auto;
+  align-items: center;
+}
+
+.card-item {
+  text-align: center;
+}
+
 /** Actor Card */
 
 .actorcard {
@@ -219,14 +249,4 @@ body {
   align-items: center;
   transition: 0.3s;
   padding: 1rem;
-}
-
-#go-back {
-  font-family: "Short Stack", cursive;
-  font-size: large;
-  width:100px;
-  display:inline-block;
-  color:brown;
-
-
 }

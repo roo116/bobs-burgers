@@ -5,19 +5,19 @@ var btnEl = document.getElementById("search-button");
 var imgEl = document.getElementById("result-img");
 var nameEl = document.getElementById("name");
 var actorName = "";
-var quoteEl=document.getElementById("quote");
-var randomPic=document.getElementById("rdm-char-img");
-var randomName=document.getElementById("character-name");
+var quoteEl = document.getElementById("quote");
+var randomPic = document.getElementById("rdm-char-img");
+var randomName = document.getElementById("character-name");
 
-// retrieve local storage and store it in variable
-searchResults = JSON.parse(localStorage.getItem("searchResults"));
-
+// setup a clean object for a new search
 
 var searchResults = {
   charName: [],
   charImg: [],
+  charSpec: [],
+  charPlanet: [],
   actorName: [],
-  actorImg: [],
+  actorImg: []
 };
 
 
@@ -25,13 +25,12 @@ var searchResults = {
 var clickHandler = function (event) {
   event.preventDefault();
 
-  console.log(nameEl.value);
   character = nameEl.value.trim();
-  console.log(">>>> check character :",character);
   getCharacter(character);
 };
 
-// to retrive the chracter details from futurama API and store the results in  local storage
+// get character data from API futurama
+
 var getCharacter = function (character) {
   var apiUrl =
     "https://futuramaapi.herokuapp.com/api/v2/characters?search=" + character;
@@ -41,14 +40,23 @@ var getCharacter = function (character) {
     }
     if (response.ok) {
       response.json().then(function (data) {
+        if (data[0].VoicedBy == "Billy West Iván Muelas (Spain)") {
+          actor = "Billy West"
+        } else {
+          actor = data[0].VoicedBy;
+        }
         // to display random character on main page on load
+
         nameEl.textContent = data[0].Name;
+        charSpec = data[0].Species;
+        charPlanet = data[0].Planet;
         imgEl.src = data[0].PicUrl;
-        actor = data[0].VoicedBy;
 
         searchResults.charName.push(nameEl.textContent);
         searchResults.charImg.push(imgEl.src);
         searchResults.actorName.push(actor);
+        searchResults.charSpec.push(charSpec);
+        searchResults.charPlanet.push(charPlanet);
 
         localStorage.setItem("searchResults", JSON.stringify(searchResults));
 
@@ -61,11 +69,17 @@ var getCharacter = function (character) {
 btnEl.addEventListener("click", clickHandler);
 
 //random front page character and assets
+
+var charList = ["Philip J. Fry", "Leela", "Hubert J. Farnsworth", "Bender", "Amy"];
+var charListQuote = ["Fry", "Leela", "Professor-Farnsworth", "Bender", "Amy"]
+var randomChar = function () {
+  var choice = Math.floor(Math.random() * 5)
+
 var charList=["Philip J. Fry","Leela","Hubert J. Farnsworth","Bender","Amy"];
 var charListQuote=["Fry","Leela", "Professor-Farnsworth", "Bender", "Amy"]
 var randomChar=function(){
 var choice=Math.floor(Math.random()*5)
-console.log(choice);
+
   return choice;
 
 }
@@ -77,9 +91,9 @@ var setRandomChar = function (character) {
       return;
     }
     if (response.ok) {
-     
+
       response.json().then(function (data) {
-       
+
         randomName.textContent = data[0].Name;
         randomPic.src = data[0].PicUrl;
         actor = data[0].VoicedBy;
@@ -94,9 +108,12 @@ var setRandomChar = function (character) {
       return;
     }
     if (response.ok) {
-      
+
       response.json().then(function (data) {
-        console.log(data);
+
+        var quoteChoice = Math.floor(Math.random() * data.length);
+        quoteEl.textContent = data[quoteChoice].quote;
+
         var quoteChoice=Math.floor(Math.random()*data.length);
         quoteEl.textContent="Quote : "+ data[quoteChoice].quote;
 
