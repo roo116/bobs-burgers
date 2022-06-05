@@ -59,6 +59,7 @@ var getActorImg = function (actorId) {
       document.getElementById("actor-desc").textContent = actorDesc
       var actorLink = document.createElement("a");
       actorLink.setAttribute("href", actorUrl)
+      actorLink.setAttribute("target", "_blank")
       actorLink.textContent = "Find out more.  Click Me!!"
       actorLinkEl.appendChild(actorLink)
 

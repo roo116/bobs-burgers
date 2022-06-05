@@ -42,12 +42,15 @@ var getCharacter = function (character) {
     if (response.ok) {
       response.json().then(function (data) {
         console.log(data);
+        if (data[0].VoicedBy == "Billy West Iván Muelas (Spain)") {
+          actor = "Billy West"
+        } else {
+          actor = data[0].VoicedBy;
+        }
         nameEl.textContent = data[0].Name;
         charSpec = data[0].Species;
         charPlanet = data[0].Planet;
-
         imgEl.src = data[0].PicUrl;
-        actor = data[0].VoicedBy;
 
         searchResults.charName.push(nameEl.textContent);
         searchResults.charImg.push(imgEl.src);
