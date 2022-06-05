@@ -48,11 +48,8 @@ label{
   border-style: dashed;
   border-width: thick;
   background-color: rgb(205, 207, 83);
-  /* font-family: "Short Stack", cursive; */
 }
- /* #random-character{
-  margin-top: 200px;
-}  */
+
 .random-pic {
   margin-top: 50px;
   margin-left: 500px;

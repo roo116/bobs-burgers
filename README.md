@@ -41,7 +41,7 @@ THEN explore what other projects with which voice actors have been involved
 - FUTURAMA API : To get the favourite character deatils.
 - IMDB API : To get the voice actor behind the character.
 
-## How-to
+## How-to :
 
 GIVEN USER an application to search voice actor behind animated character
 
