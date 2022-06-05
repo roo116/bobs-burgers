@@ -10,6 +10,7 @@ var randomPic = document.getElementById("rdm-char-img");
 var randomName = document.getElementById("character-name");
 
 // setup a clean object for a new search
+
 var searchResults = {
   charName: [],
   charImg: [],
@@ -20,15 +21,16 @@ var searchResults = {
 };
 
 
+// clickHandler function to take the input from the user and call getCharacter function with the character
 var clickHandler = function (event) {
   event.preventDefault();
 
-  console.log(nameEl.value);
   character = nameEl.value.trim();
   getCharacter(character);
 };
 
 // get character data from API futurama
+
 var getCharacter = function (character) {
   var apiUrl =
     "https://futuramaapi.herokuapp.com/api/v2/characters?search=" + character;
@@ -38,12 +40,13 @@ var getCharacter = function (character) {
     }
     if (response.ok) {
       response.json().then(function (data) {
-        console.log(data);
         if (data[0].VoicedBy == "Billy West Iván Muelas (Spain)") {
           actor = "Billy West"
         } else {
           actor = data[0].VoicedBy;
         }
+        // to display random character on main page on load
+
         nameEl.textContent = data[0].Name;
         charSpec = data[0].Species;
         charPlanet = data[0].Planet;
@@ -62,7 +65,7 @@ var getCharacter = function (character) {
     }
   });
 };
-
+// event listener on search button that calls clickHandler function
 btnEl.addEventListener("click", clickHandler);
 
 //random front page character and assets
@@ -71,11 +74,15 @@ var charList = ["Philip J. Fry", "Leela", "Hubert J. Farnsworth", "Bender", "Amy
 var charListQuote = ["Fry", "Leela", "Professor-Farnsworth", "Bender", "Amy"]
 var randomChar = function () {
   var choice = Math.floor(Math.random() * 5)
-  console.log(choice);
+
+var charList=["Philip J. Fry","Leela","Hubert J. Farnsworth","Bender","Amy"];
+var charListQuote=["Fry","Leela", "Professor-Farnsworth", "Bender", "Amy"]
+var randomChar=function(){
+var choice=Math.floor(Math.random()*5)
+
   return choice;
 
 }
-
 var setRandomChar = function (character) {
   var apiUrl =
     "https://futuramaapi.herokuapp.com/api/v2/characters?search=" + charList[character];
@@ -103,12 +110,16 @@ var setRandomChar = function (character) {
     if (response.ok) {
 
       response.json().then(function (data) {
-        console.log(data);
+
         var quoteChoice = Math.floor(Math.random() * data.length);
         quoteEl.textContent = data[quoteChoice].quote;
+
+        var quoteChoice=Math.floor(Math.random()*data.length);
+        quoteEl.textContent="Quote : "+ data[quoteChoice].quote;
 
       });
     }
   });
 };
+
 setRandomChar(randomChar());
