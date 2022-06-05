@@ -10,14 +10,16 @@ var randomPic = document.getElementById("rdm-char-img");
 var randomName = document.getElementById("character-name");
 
 // function init() {
-searchResults = JSON.parse(localStorage.getItem("searchResults"));
+// searchResults = JSON.parse(localStorage.getItem("searchResults"));
 
 // if (!searchResults) {
 var searchResults = {
   charName: [],
   charImg: [],
+  charDesc: [],
   actorName: [],
   actorImg: [],
+
 };
 
 // return;

@@ -67,26 +67,6 @@ img {
   margin: 0.5em 0em 0em 0.5em;
 }
 
-/* character card styling */
-.character-card {
-  width: 9rem;
-  background-color: #0275d8;
-  color: white;
-  text-align: center;
-}
-
-.card .card-image img {
-  display: block;
-  border-radius: 2px 2px 0 0;
-  position: relative;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  margin: auto;
-}
-
 /* Results Page */
 
 /** Body and Gradient Background */
@@ -101,6 +81,10 @@ body {
     #050f14 100%
   );
   background: linear-gradient(to right, #050f14 0%, #2f8cbd 50%, #050f14 100%);
+}
+
+#go-back {
+  font-family: "Short Stack", cursive;
 }
 
 /** Animation for Character card */
@@ -209,6 +193,27 @@ body {
   padding: 1rem;
 }
 
+/* character card styling */
+.character-card {
+  width: 9rem;
+  background-color: #0275d8;
+  /* color: white; */
+  text-align: center;
+}
+
+
+.card .card-image img {
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  margin: auto;
+}
+
 /** Actor Card */
 
 .actorcard {
@@ -217,8 +222,4 @@ body {
   align-items: center;
   transition: 0.3s;
   padding: 1rem;
-}
-
-#go-back {
-  font-family: "Short Stack", cursive;
 }

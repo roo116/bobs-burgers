@@ -4,7 +4,7 @@ var charName = document.getElementById("char-name");
 var actorNameEl = document.getElementById("actor-name");
 var backBtnEl = document.getElementById("go-back");
 var actorInfo = document.getElementById("actor-info");
-var actorLinkEl = document.getElementsByClassName("card-action");
+var actorLinkEl = document.getElementById("card-link")
 var actorId = "";
 var actorImg = "";
 
@@ -16,36 +16,52 @@ charTgt.setAttribute("src", charUrl);
 charName.textContent = searchResults.charName[0];
 actorNameEl.textContent = actorName;
 
-var apiImdb = `https://imdb-api.com/en/API/SearchName/k_c7pld9ns/${actorName}`;
+var apiImdb = `https://imdb-api.com/en/API/SearchName/k_4lc84q6o/${actorName}`;
 fetch(apiImdb).then(function (response) {
+  if (!response.ok) {
+    console.log("error");
+    return;
+  }
   if (response.ok)
     response.json().then(function (data) {
       actorId = data.results[0].id;
       getActorImg(actorId);
     });
-});
+})
+  .catch(error => console.log("error", error))
 
 var getActorImg = function (actorId) {
-  console.log(actorId);
   var apiActorImg = `https://imdb-api.com/en/API/Search/k_4lc84q6o/${actorId}?=bio`;
   console.log(apiActorImg);
   fetch(apiActorImg).then(function (response) {
     response.json().then(function (data) {
       console.log(data);
       actorImg = data.results[0].image;
+      console.log("actor image", actorImg);
       var actorDesc = data.results[0].description;
+      console.log("actor description", actorDesc);
       actorUrl = `https://imdb.com/name/${actorId}`;
+      console.log("actor URL", actorUrl);
       document.getElementById("actor-image").setAttribute("src", actorImg);
-
+      document.getElementById("actor-desc").textContent = actorDesc
       var actorLink = document.createElement("a");
-      var actorEl = document.createElement("p");
+      actorLink.setAttribute("href", actorUrl)
+      actorLink.textContent = "Find out more.  Click Me!!"
+      actorLinkEl.appendChild(actorLink)
 
-      actorLink.setAttribute("href", actorUrl);
-      actorLink.textContent = "IMDB link";
-      actorEl.textContent = actorDesc;
 
-      actorInfo.appendChild(actorEl);
-      actorLinkEl.appendChild(actorLink);
+      // actorLinkEl = document.getElementsByClassName("card-action");
+      // console.log(actorLinkEl);
+      // 
+      // console.log(actorLink)
+      // var actorEl = document.createElement("p");
+
+      // actorLink.setAttribute("href", actorUrl);
+      // actorLink.textContent = "IMDB link";
+      // actorEl.textContent = actorDesc;
+
+      // actorInfo.appendChild(actorEl);
+      // actorLinkEl.appendChild(actorLink);
     });
   });
 };
